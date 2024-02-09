@@ -4,13 +4,15 @@ import "firebase/compat/firestore";
 import { toast } from "react-toastify";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCPmQngpOEGe8NCFAPdraSSxkH7ogstc6w",
-  authDomain: "gptsahib-e26ab.firebaseapp.com",
-  projectId: "gptsahib-e26ab",
-  storageBucket: "gptsahib-e26ab.appspot.com",
-  messagingSenderId: "676228888864",
-  appId: "1:676228888864:web:bac29dd21aed4d91fc7f45",
+  apiKey: "AIzaSyAQMQPlixyU19LUTz8GTExC7KiCurqRvHY",
+  authDomain: "gptsahib-3c1aa.firebaseapp.com",
+  projectId: "gptsahib-3c1aa",
+  storageBucket: "gptsahib-3c1aa.appspot.com",
+  messagingSenderId: "907339767009",
+  appId: "1:907339767009:web:1795cb8bd5dcbb38c72ba0",
+  measurementId: "G-JCDEVM3CPC"
 };
+
 
 firebase.initializeApp(firebaseConfig);
 
