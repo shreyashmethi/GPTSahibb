@@ -95,7 +95,7 @@ export async function signInWithGoogle({ setSucess }) {
     setSucess(true);
     localStorage.setItem("id", user.uid);
   } catch (error) {
-    console.log(error.message);
+    console.log(error.message,123);
     setSucess(false);
   }
 }
