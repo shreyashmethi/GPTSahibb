@@ -1,4 +1,4 @@
-  import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./chat.module.css";
 import {
   addHistory,
@@ -22,10 +22,26 @@ function ChatPage() {
 
   const handleSendMessage = () => {
     if (inputValue.trim() !== "") {
-      const updatedHistory = [...history, { query: inputValue, ans: "" }];
-      setHistory(updatedHistory);
-      setInputValue("");
-      getResp({ query: inputValue, setAns: setAns, setError: setError });
+      const requestBody = {
+        query: inputValue
+      };
+  
+      fetch('https://asia-south1-hidden-cosmos-391410.cloudfunctions.net/function-2', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Update your UI to display the received answer
+        setAns(data.answer);
+      })
+      .catch(error => {
+        // Handle errors
+        console.error('Error:', error);
+      });
     }
   };
 
@@ -54,31 +70,17 @@ function ChatPage() {
   useEffect(() => {
     if (ans != null) {
       const updatedHistory = [...history]; // Create a copy of the current history state
-      const lastEntryIndex = updatedHistory.length - 1;
-      const val = updatedHistory[lastEntryIndex];
-      val.ans = ans;
-      updatedHistory[lastEntryIndex] = val;
-      setHistory(updatedHistory);
-
-      if (currId == null) {
-        createHistory({
-          uid: user.objectId,
-          data: updatedHistory, // Use the updatedHistory here
-          setCurrId: setCurr,
-          setNewChat: setNewChat,
-        });
-        // fetchHistory({ userId: user.objectId, setSideBar: setSideBar });
-      } else {
-        addHistory({
-          userId: user.objectId,
-          uid: currId,
-          data: updatedHistory,
-        });
-      }
-
+      updatedHistory.push({ query: inputValue, ans: ans }); // Add the new message and its corresponding answer to history
+      setHistory(updatedHistory); // Update the 'history' state with the modified array
+  
+      // Reset the 'ans' state
       setAns(null);
+  
+      // Clear input value
+      setInputValue("");
     }
-  });
+  }, [ans]);
+  // Add 'ans' as a dependency here to trigger the effect when 'ans' changes
 
   useEffect(() => {}, [history, sidebarHis]);
 
@@ -90,6 +92,7 @@ function ChatPage() {
     setCurr(null);
     setHistory([]);
   };
+
   const updateCurr = () => {
     if (currId != null) {
       var v = sidebarHis.find((x) => x.uid == currId);
@@ -109,7 +112,7 @@ function ChatPage() {
             setMenu(!menu);
           }}
         >
-          <img src="images/menu.png"></img>{" "}
+          <img src="images/menu.png" alt="menu"></img>{" "}
         </div>
       ) : (
         <div className={`${style.menu} ${isMenuOpen ? style.menuClose : style.menuOpen}`}>
@@ -121,11 +124,11 @@ function ChatPage() {
                 setMenu(!menu);
               }}
             >
-              <img src="images/new.png"></img>{" "}
+              <img src="images/new.png" alt="close"></img>{" "}
             </div>
             <div className={style.new} onClick={() => setNew()}>
               {" "}
-              <img src="images/new.png"></img>
+              <img src="images/new.png" alt="new"></img>
               New question
             </div>
           </div>
@@ -162,7 +165,7 @@ function ChatPage() {
           <div className={style.bottom}>
             <div className={style.ul}></div>
             <div className={style.prof}>
-              <img src="images/ac.png"></img>
+              <img src="images/ac.png" alt="profile"></img>
               {user.name}
             </div>
 
@@ -172,7 +175,7 @@ function ChatPage() {
                 window.location = "/#pricing";
               }}
             >
-              <img src="images/upgrade.png" style={{ height: "15px" }}></img>
+              <img src="images/upgrade.png" style={{ height: "15px" }} alt="upgrade"></img>
               Upgrade Account
             </div>
           </div>
@@ -187,7 +190,7 @@ function ChatPage() {
               <div className={style.emptHeader}>GPT SAHIB</div>
               <div className={style.emptyIns}>
                 {" "}
-                <img src="images/ins.png"></img> <br></br>
+                <img src="images/ins.png" alt="instructions"></img> <br></br>
                 Instructions
               </div>
               <div className={style.emptyEle}>
@@ -219,12 +222,12 @@ function ChatPage() {
                   <div className={style.qele} key={id}>
                     <div className={style.query}>
                       {" "}
-                      <img src="images/acc.png"></img> {val.query}{" "}
+                      <img src="images/acc.png" alt="query"></img> {val.query}{" "}
                     </div>
 
                     <div className={style.ans}>
                       {" "}
-                      <img src="images/logo.png"></img> {val.ans}
+                      <img src="images/logo.png" alt="answer"></img> {val.ans}
                     </div>
                     <div className={style.hr}></div>
                   </div>
@@ -247,7 +250,7 @@ function ChatPage() {
               }
             }}
           ></input>
-          <img src="images/sent.png" onClick={handleSendMessage}></img>
+          <img src="images/sent.png" alt="send" onClick={handleSendMessage}></img>
         </div>
       </div>
     </div>
