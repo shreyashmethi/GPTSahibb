@@ -78,6 +78,7 @@ export async function createUserDocument(userId, name, email) {
       objectId: userId,
     });
   } catch (error) {
+    console.log(error,456)
     throw error;
   }
 }
