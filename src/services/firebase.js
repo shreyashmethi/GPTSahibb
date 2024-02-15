@@ -96,7 +96,7 @@ export async function signInWithGoogle({ setSucess }) {
     const email = user.email;
 
     console.log(4)
-    await createUserDocument(user.uid, name, email);
+    // await createUserDocument(user.uid, name, email);
     console.log(5)
     setSucess(true);
     localStorage.setItem("id", user.uid);
