@@ -84,14 +84,19 @@ export async function createUserDocument(userId, name, email) {
 
 export async function signInWithGoogle({ setSucess }) {
   try {
+    console.log(1)
     const provider = new firebase.auth.GoogleAuthProvider();
+    console.log(2)
     const userCredential = await firebase.auth().signInWithPopup(provider);
+    console.log(3)
 
     const user = userCredential.user;
     const name = user.displayName;
     const email = user.email;
-    await createUserDocument(user.uid, name, email);
 
+    console.log(4)
+    await createUserDocument(user.uid, name, email);
+    console.log(5)
     setSucess(true);
     localStorage.setItem("id", user.uid);
   } catch (error) {
