@@ -7,31 +7,42 @@ import style from "./main.module.css";
 function PricingCard({ card }) {
   const list = [];
   const buyNow = async (price, subscription_name) => {
-    var options = {
-      key: "rzp_test_podAzJtN0eJ90B",
-      key_secret: "dmRbskqqXkIOntD0g6LEoEGD",
-      amount: parseInt(price * 100),
-      currency: "USD",
-      order_receipt: 'order_rcptid_' + localStorage.getItem("id"),
-      name: "GPT-Sahab",
-      description: "for testing purpose",
-      handler: async function (response) {
-        console.log(response)
-        toast.success('Payment Successful');
-        const paymentId = response.razorpay_payment_id
-        try {
-          await updateOrderDetailOfUser(localStorage.getItem('id'), paymentId, subscription_name)
+    if (localStorage.getItem('login' && localStorage.getItem('id'))) {
+      var options = {
+        key: "rzp_test_podAzJtN0eJ90B",
+        key_secret: "dmRbskqqXkIOntD0g6LEoEGD",
+        amount: parseInt(price * 100),
+        currency: "USD",
+        order_receipt: 'order_rcptid_' + localStorage.getItem("id"),
+        name: "GPT-Sahab",
+        description: "for testing purpose",
+        handler: async function (response) {
+          if (response.error) {
+            console.log('Payment failed:', response.error);
+            toast.error('Payment Failed: ' + response.error.description);
+          }
+          else {
+            console.log(response)
+            toast.success('Payment Successful');
+            const paymentId = response.razorpay_payment_id
+            try {
+              await updateOrderDetailOfUser(localStorage.getItem('id'), paymentId, subscription_name)
+            }
+            catch (error) {
+              console.log(error)
+            }
+          }
+        },
+        theme: {
+          color: "#3399cc"
         }
-        catch (error) {
-          console.log(error)
-        }
-      },
-      theme: {
-        color: "#3399cc"
-      }
-    };
-    var pay = new window.Razorpay(options);
-    pay.open();
+      };
+      var pay = new window.Razorpay(options);
+      pay.open();
+    }
+    else {
+      toast.success('Kindly Login First !');
+    }
   }
 
 
