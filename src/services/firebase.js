@@ -78,8 +78,24 @@ export async function createUserDocument(userId, name, email) {
       objectId: userId,
     });
   } catch (error) {
-    console.log(error,456)
+    console.log(error, 456)
     throw error;
+  }
+}
+
+export async function updateOrderDetailOfUser(userId, payment_id, subscription_name) {
+  try {
+    const userRef = firebase.firestore().collection("users").doc(userId);
+    await userRef.update({
+      order: {
+        subscription: subscription_name,
+        payment_id: payment_id
+      }
+    });
+  }
+  catch (error) {
+    console.log(error)
+    throw error
   }
 }
 
@@ -101,7 +117,7 @@ export async function signInWithGoogle({ setSucess }) {
     setSucess(true);
     localStorage.setItem("id", user.uid);
   } catch (error) {
-    console.log(error.message,123);
+    console.log(error.message, 123);
     setSucess(false);
   }
 }
