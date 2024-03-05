@@ -790,12 +790,14 @@ html {
 } */
 
 .privacy {
+    cursor: pointer;
     text-decoration: underline;
     color: rgba(255, 255, 255, 0.80);
     font-size: 16px;
 }
 
 .privacy2 {
+    cursor: pointer;
     padding-top: 10px;
     text-decoration: underline;
     color: rgba(255, 255, 255, 0.80);
