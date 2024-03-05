@@ -225,7 +225,7 @@ function Main() {
       ],
       color: "#BC5E0E",
       path: "images/t1.png",
-      price: ["15$", "Per week"],
+      price: ["₹11", "Per week"],
     },
     {
       head: "Professional",
@@ -237,7 +237,7 @@ function Main() {
       ],
       color: "#BDBDBD",
       path: "images/t2.png",
-      price: ["45$", "Per 6 month"],
+      price: ["₹33", "Per 6 month"],
     },
     {
       head: "Business",
@@ -249,7 +249,7 @@ function Main() {
       ],
       color: "#CCA237",
       path: "images/t3.png",
-      price: ["70$", "Per year"],
+      price: ["₹77", "Per year"],
     },
   ];
 
@@ -449,7 +449,7 @@ function Main() {
             <div className={style.coninfo}>
               <div className={style.conele}>
                 {" "}
-                <img src="images/call.png"></img>+91 00000 00000
+                <img src="images/call.png"></img>+91 86994 27726
               </div>
               <div className={style.conele}>
                 <img src="images/mail.png"></img>gptsahib03@gmail.com
