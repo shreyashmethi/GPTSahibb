@@ -78,30 +78,40 @@ export async function createUserDocument(userId, name, email) {
       objectId: userId,
     });
   } catch (error) {
-    console.log(error,456)
+    console.log(error, 456)
     throw error;
+  }
+}
+
+export async function updateOrderDetailOfUser(userId, payment_id, subscription_name) {
+  try {
+    const userRef = firebase.firestore().collection("users").doc(userId);
+    await userRef.update({
+      order: {
+        subscription: subscription_name,
+        payment_id: payment_id
+      }
+    });
+  }
+  catch (error) {
+    console.log(error)
+    throw error
   }
 }
 
 export async function signInWithGoogle({ setSucess }) {
   try {
-    console.log(1)
     const provider = new firebase.auth.GoogleAuthProvider();
-    console.log(2)
     const userCredential = await firebase.auth().signInWithPopup(provider);
-    console.log(3)
 
     const user = userCredential.user;
     const name = user.displayName;
     const email = user.email;
-
-    console.log(4)
-    // await createUserDocument(user.uid, name, email);
-    console.log(5)
+    await createUserDocument(user.uid, name, email);
     setSucess(true);
     localStorage.setItem("id", user.uid);
   } catch (error) {
-    console.log(error.message,123);
+    console.log(error.message, 123);
     setSucess(false);
   }
 }

@@ -9,9 +9,13 @@ import "./cookie.css";
 function Main() {
   const [login, setLogin] = useState();
   const [showCookiePopup, setShowCookiePopup] = useState(false);
+  const [showCookiePopup2, setShowCookiePopup2] = useState(false);
 
   const handlePopupOpen = () => {
     setShowCookiePopup(!showCookiePopup);
+  };
+  const handlePopupOpen2 = () => {
+    setShowCookiePopup2(!showCookiePopup2);
   };
   const CookiePopup = () => {
     return (
@@ -27,16 +31,17 @@ function Main() {
               Cookie and Privacy Policy
             </span>{" "}
             explains how we collect, use, and protect your personal information
-            when you visit and interact with our website. By accessing or using
+            when you visit and interact with our website, including information
+            related to payment processing through Razorpay. By accessing or using
             our website, you consent to the terms outlined in this policy.
             <br />
             <br />
             1. Information Collection and Use:
             <br />
-            a. Personal Information: We may collect personal information, such
-            as your name, email address, or contact details when you voluntarily
-            provide them to us for purposes such as subscribing to our
-            newsletter or participating in discussions.
+            a. Personal Information: We may collect personal information, such as
+            your name, email address, contact details, and payment information
+            (e.g., credit card details) when you voluntarily provide them to us
+            for purposes such as completing transactions through Razorpay.
             <br />
             b. Cookies and Tracking Technologies: We use cookies and similar
             tracking technologies to enhance your browsing experience, analyze
@@ -52,34 +57,54 @@ function Main() {
             2. Information Sharing:
             <br />
             a. We respect your privacy and will not sell, rent, or disclose your
-            personal information to third parties, except as required by law or
-            with your explicit consent.
+            personal information to third parties, except as required by law, or
+            for the purpose of processing payments through Razorpay with your
+            explicit consent.
             <br />
-            b. We may engage trusted third-party service providers to assist us
-            in delivering our services, subject to their agreement to maintain
-            the confidentiality and security of your personal information.
+            b. We may engage trusted third-party service providers, including
+            Razorpay, to assist us in delivering our services, subject to their
+            agreement to maintain the confidentiality and security of your
+            personal information.
             <br />
             <br />
             3. Data Security:
             <br />
             a. We implement appropriate technical and organizational measures to
-            protect your personal information from unauthorized access,
-            disclosure, or alteration.
+            protect your personal information, including payment information,
+            from unauthorized access, disclosure, or alteration. We use
+            industry-standard encryption protocols to safeguard sensitive
+            information during transmission and storage.
             <br />
             b. While we strive to maintain the security of your information,
             please note that no method of transmission over the internet or
             electronic storage is 100% secure.
             <br />
             <br />
-            4. External Links:
+            4. Payment Processing:
+            <br />
+            a. Payments for goods or services provided through our website are
+            processed by Razorpay. When you make a payment, your personal and
+            financial information may be collected by Razorpay for the purpose of
+            processing the transaction. Please review Razorpay's{" "}
+            <a
+              href="https://razorpay.com/docs/legal/privacy"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Privacy Policy
+            </a>{" "}
+            for information on how they handle your data.
+            <br />
+            <br />
+            5. External Links:
             <br />
             Our website may contain links to external websites or resources that
             are not controlled or operated by us. This Cookie and Privacy Policy
-            does not apply to those third-party websites, and we encourage you
-            to review their respective privacy policies.
+            does not apply to those third-party websites, and we encourage you to
+            review their respective privacy policies.
             <br />
             <br />
-            5. Changes to the Policy:
+            6. Changes to the Policy:
             <br />
             We reserve the right to update or modify this Cookie and Privacy
             Policy at any time. We encourage you to review this policy
@@ -87,8 +112,9 @@ function Main() {
             <br />
             <br />
             If you have any questions, concerns, or requests regarding your
-            personal information or this policy, please contact us through the
-            provided contact details on our website.
+            personal information or this policy, including information related to
+            payments through Razorpay, please contact us through the provided
+            contact details on our website.
           </p>
           <button className="close-button" onClick={handlePopupOpen}>
             Close
@@ -97,6 +123,74 @@ function Main() {
       </div>
     );
   };
+
+  const TermsAndConditions = () => {
+    return (
+      <div className="cookie-popup">
+        <div className="cookie-content">
+          <h2>Terms and Conditions</h2>
+          <p>
+            Welcome to GPT Sahib! These terms and conditions outline the rules and regulations for the use of our website and services provided through Razorpay.
+          </p>
+          <p>
+            By accessing this website and using our services, you accept these terms and conditions. Do not continue to use GPT Sahib if you do not agree to all the terms and conditions stated on this page.
+          </p>
+          <h3>Interpretation and Definitions</h3>
+          <p>
+            The following terminology applies to these Terms and Conditions, Privacy Statement, and Disclaimer Notice and any or all Agreements: "Client", "You" and "Your" refers to you, the person accessing this website and accepting the Company's terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves, or either the Client or ourselves.
+          </p>
+          <h3>Payments</h3>
+          <p>
+            All payments made through our website are processed by Razorpay. By using our services, you agree to comply with Razorpay's terms of service and privacy policy.
+          </p>
+          <h3>Refund Policy</h3>
+          <p>
+            All payments made through our website are non-refundable unless explicitly stated otherwise in writing by GPT Sahib. Refund requests, if any, must be submitted in accordance with the refund policy outlined by Razorpay.
+          </p>
+          <h3>Content</h3>
+          <p>
+            All content provided on this website, including but not limited to text, graphics, images, and audio files, is for informational purposes only. The content is subject to change without notice.
+          </p>
+          <h3>Intellectual Property Rights</h3>
+          <p>
+            Unless otherwise stated, GPT Sahib and/or its licensors own the intellectual property rights for all material on this website. You may not republish, reproduce, duplicate, copy, or otherwise exploit material on this website without our prior written consent.
+          </p>
+          <h3>Limitation of Liability</h3>
+          <p>
+            In no event shall GPT Sahib, nor any of its officers, directors, and employees, be liable to you for anything arising out of or in any way connected with your use of this website, whether such liability is under contract, tort, or otherwise.
+          </p>
+          <h3>Indemnification</h3>
+          <p>
+            You hereby indemnify to the fullest extent GPT Sahib from and against any and all liabilities, costs, demands, causes of action, damages, and expenses arising out of or in any way related to your breach of any of the provisions of these terms.
+          </p>
+          <h3>Severability</h3>
+          <p>
+            If any provision of these terms is found to be invalid under any applicable law, such provisions shall be deleted without affecting the remaining provisions herein.
+          </p>
+          <h3>Variation of Terms</h3>
+          <p>
+            GPT Sahib is permitted to revise these terms at any time as it sees fit, and by using this website you are expected to review these terms regularly.
+          </p>
+          <h3>Governing Law & Jurisdiction</h3>
+          <p>
+            These terms will be governed by and construed in accordance with the laws of India, and you submit to the non-exclusive jurisdiction of the state and federal courts located in India for the resolution of any disputes.
+          </p>
+          <h3>Contact Us</h3>
+          <p>
+            If you have any questions or concerns about these terms and conditions, please contact us at:
+          </p>
+          <p>
+            Email: gptsahib03@gmail.com<br />
+            Phone: +91 00000 00000
+          </p>
+          <button className="close-button" onClick={handlePopupOpen2}>
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  };
+
   const socialLinks = [
     { img: "images/fb.png", link: "https://www.facebook.com/" },
     { img: "images/insta.png", link: "https://www.instagram.com/" },
@@ -312,11 +406,11 @@ function Main() {
           Pricing
         </div>
         <div className={style.cardSec}>
-          
-                {cards2.map((val) => {
-                return <PricingCard card={val} />;
-               })}
-               
+
+          {cards2.map((val) => {
+            return <PricingCard card={val} />;
+          })}
+
         </div>
       </div>
 
@@ -419,6 +513,7 @@ function Main() {
         </div>
       </div>
       {showCookiePopup && <CookiePopup />}
+      {showCookiePopup2 && <TermsAndConditions />}
       <div className={style.bot}>
         <div className={style.nlogo}>
           <img src="images/logo1.png"></img>
@@ -436,10 +531,16 @@ function Main() {
           <a href={login == true || login == "true" ? "/chat" : "/login"}>
             Try Free
           </a>
+          <div className={style.privacy} onClick={handlePopupOpen}>
+            Privacy Policy
+          </div>
+          <div className={style.privacy2} onClick={handlePopupOpen2}>
+            Terms & Conditions
+          </div>
         </div>
-        <div className={style.privacy} onClick={handlePopupOpen}>
-          Privacy Policy
-        </div>
+        {/* <div className={style.mainFooter} >
+          
+        </div> */}
       </div>
     </div>
   );
