@@ -181,7 +181,8 @@ function Main() {
           </p>
           <p>
             Email: gptsahib03@gmail.com<br />
-            Phone: +91 86994 27726
+            Phone: +91 86994 27726<br />
+            Address : 296, Sector-71,Mohali
           </p>
           <button className="close-button" onClick={handlePopupOpen2}>
             Close
