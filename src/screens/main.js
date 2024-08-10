@@ -183,7 +183,8 @@ function Main() {
           </p>
           <p>
             Email: gptsahib03@gmail.com<br />
-            Phone: +91 00000 00000
+            Phone: +91 86994 27726<br />
+            Address : 296, Sector-71,Mohali
           </p>
           <button className="close-button" onClick={handlePopupOpen2}>
             Close
@@ -488,6 +489,9 @@ function Main() {
               </div>
               <div className={style.conele}>
                 <img src="images/mail.png"></img>gptsahib03@gmail.com
+              </div>
+              <div className={style.conele}>
+                Address : 296, Sector-71,Mohali
               </div>
             </div>
             <div className={style.hr}></div>
