@@ -1,50 +1,67 @@
 import React from "react";
-import { useState } from "react"
-import { toast } from 'react-toastify';
-import { updateOrderDetailOfUser } from "../services/firebase"
+import axios from "axios";
+import { toast } from "react-toastify";
+import { updateOrderDetailOfUser } from "../services/firebase";
 import style from "./main.module.css";
 
 function PricingCard({ card }) {
   const list = [];
-  const buyNow = async (price, subscription_name) => {
-    if (localStorage.getItem('login' && localStorage.getItem('id'))) {
-      var options = {
-        key: "rzp_test_podAzJtN0eJ90B",
-        key_secret: "dmRbskqqXkIOntD0g6LEoEGD",
-        amount: parseInt(price * 100),
-        currency: "USD",
-        order_receipt: 'order_rcptid_' + localStorage.getItem("id"),
-        name: "GPT-Sahab",
-        description: "for testing purpose",
-        handler: async function (response) {
-          if (response.error) {
-            console.log('Payment failed:', response.error);
-            toast.error('Payment Failed: ' + response.error.description);
-          }
-          else {
-            console.log(response)
-            toast.success('Payment Successful');
-            const paymentId = response.razorpay_payment_id
-            try {
-              await updateOrderDetailOfUser(localStorage.getItem('id'), paymentId, subscription_name)
-            }
-            catch (error) {
-              console.log(error)
-            }
-          }
-        },
-        theme: {
-          color: "#3399cc"
-        }
-      };
-      var pay = new window.Razorpay(options);
-      pay.open();
-    }
-    else {
-      toast.success('Kindly Login First !');
-    }
-  }
 
+  const buyNow = async (price, subscription_name) => {
+    if (localStorage.getItem("login") && localStorage.getItem("id")) {
+      console.log(price);
+      try {
+        await axios
+          .post(`http://localhost:8000/api/payment/indirect-payment`, {
+            amount: price,
+            MUID: "MUID" + Date.now(),
+            transactionId: "T" + Date.now(),
+            userId: `${localStorage.getItem("id")}`,
+          })
+          .then((res) => {
+            window.location.href = res.data.data;
+          });
+      } catch (error) {
+        if (error.response) {
+          if (error.response.status === 400) {
+            toast.error(error.response.data.message, {
+              position: toast.POSITION_TOP_RIGHT,
+            });
+          } else if (error.response.status === 404) {
+            toast.error(error.response.data.message, {
+              position: toast.POSITION_TOP_RIGHT,
+            });
+          } else if (error.response.status === 401) {
+            toast.error(error.response.data.message, {
+              position: toast.POSITION_TOP_RIGHT,
+            });
+          } else {
+            toast.error(error.response.data.message, {
+              position: toast.POSITION_TOP_RIGHT,
+            });
+          }
+        } else if (error.request) {
+          toast.error(
+            "No response received. Please check your network connection.",
+            { position: toast.POSITION_TOP_RIGHT }
+          );
+        } else {
+          toast.error("An error occurred. Please try again later.", {
+            position: toast.POSITION_TOP_RIGHT,
+          });
+        }
+      }
+    } else {
+      toast.success("Kindly Login First !");
+    }
+  };
+
+  // try {
+  //   await updateOrderDetailOfUser(localStorage.getItem('id'), paymentId, subscription_name)
+  // }
+  // catch (error) {
+  //   console.log(error)
+  // }
 
   return (
     <div className={style.pcard}>
@@ -66,7 +83,12 @@ function PricingCard({ card }) {
         <br></br>
         {card.price[1]}
       </div>
-      <button className={style.priceBtn} onClick={() => buyNow(parseInt(card.price[0]), card.head)}>Select</button>
+      <button
+        className={style.priceBtn}
+        onClick={() => buyNow(parseInt(card.price[0].slice(1)), card.head)}
+      >
+        Select
+      </button>
     </div>
   );
 }

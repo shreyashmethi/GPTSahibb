@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { updateMessagesOfUser } from "../services/firebase"
+import { toast } from 'react-toastify';
 import style from "./main.module.css";
 import Card1 from "./card1";
 import { Link } from "react-router-dom";
@@ -273,6 +275,39 @@ function Main() {
   }, [login]);
   //console.log(login);
 
+
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleFullNameChange = (event) => {
+    setFullName(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmail(event.target.value);
+  };
+
+  const handleMessageChange = (event) => {
+    setMessage(event.target.value);
+  };
+
+  const sendEmail = async () => {
+    if (!localStorage.getItem('id')) {
+      toast.error("Kindly Login First !")
+    }
+    else {
+      try {
+        await updateMessagesOfUser(localStorage.getItem('id'), fullName, email, message)
+        toast.success("Your message has been saved !")
+      }
+      catch (error) {
+        console.log(error)
+        toast.error(error)
+      }
+    }
+  }
+
   return (
     <div className={style.main}>
       <div className={style.nav}>
@@ -483,10 +518,24 @@ function Main() {
             </div>
 
             <div className={style.contact1}>
-              <input placeholder={"Full Name"}></input>
-              <input placeholder={"Email Address"}></input>
-              <textarea placeholder="Message"></textarea>
-              <div className={style.try1} style={{}}>
+              <input
+                type="text"
+                placeholder="Full Name"
+                value={fullName}
+                onChange={handleFullNameChange}
+              />
+              <input
+                type="email"
+                placeholder="Email Address"
+                value={email}
+                onChange={handleEmailChange}
+              />
+              <textarea
+                placeholder="Message"
+                value={message}
+                onChange={handleMessageChange}
+              />
+              <div className={style.try1} onClick={sendEmail} style={{}}>
                 Send <img src="images/up.png"></img>
               </div>
               {/* <div className={style.hr}></div> */}

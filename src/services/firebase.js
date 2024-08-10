@@ -99,6 +99,23 @@ export async function updateOrderDetailOfUser(userId, payment_id, subscription_n
   }
 }
 
+export async function updateMessagesOfUser(userId, fullname, email, message) {
+  try {
+    const userRef = firebase.firestore().collection("users").doc(userId);
+    await userRef.update({
+      message_details: {
+        fullname,
+        email,
+        message
+      }
+    });
+  }
+  catch (error) {
+    console.log(error)
+    throw error
+  }
+}
+
 export async function signInWithGoogle({ setSucess }) {
   try {
     const provider = new firebase.auth.GoogleAuthProvider();
