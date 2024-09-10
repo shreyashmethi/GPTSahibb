@@ -12,7 +12,7 @@ function PricingCard({ card }) {
       console.log(price);
       try {
         await axios
-          .post(`http://localhost:8000/api/payment/indirect-payment`, {
+          .post(`https://gptsahib-server.vercel.app`, {
             amount: price,
             MUID: "MUID" + Date.now(),
             transactionId: "T" + Date.now(),
