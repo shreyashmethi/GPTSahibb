@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 const PaymentSuccess = () => {
   const [transactionId, setTransactionId] = useState('');
-  const [transactionDate, setTransactionDate] = useState('');
 
   const containerStyle = {
     display: 'flex',
@@ -43,15 +42,11 @@ const PaymentSuccess = () => {
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
     const transactionId = queryParams.get('transactionId');
-    const date = queryParams.get('date');
 
     if (transactionId) {
       setTransactionId(transactionId);
     }
 
-    if (date) {
-      setTransactionDate(new Date(date).toLocaleString()); // Format the date to a readable format
-    }
   }, []);
 
   return (
@@ -60,10 +55,9 @@ const PaymentSuccess = () => {
       <p style={paragraphStyle}>
         Thank you for your payment. Your transaction has been successfully processed.
       </p>
-      {transactionId && transactionDate && (
+      {transactionId  && (
         <p style={paragraphStyle}>
           Transaction ID: {transactionId} <br />
-          Transaction Date: {transactionDate}
         </p>
       )}
       <button style={buttonStyle} onClick={handleGoHome}>
