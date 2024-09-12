@@ -171,7 +171,7 @@ function Main() {
       <h3>Refund Process</h3>
       <ol>
         <li>
-          To request a refund, please contact our customer support team within [Number] days of purchase.
+          To request a refund, please contact our customer support team within 2 days of purchase.
         </li>
         <li>
           You will be required to provide details about the issue you encountered and any relevant evidence.
@@ -194,7 +194,6 @@ function Main() {
         <li><strong>Email:</strong> gptsahib03@gmail.com </li>
         <li><strong>Phone:</strong> +91 86994 27726 </li>
       </ul>
-    </div>
           <button className="close-button" onClick={handlePopupOpen3}>
             Close
           </button>
