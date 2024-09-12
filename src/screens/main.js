@@ -12,6 +12,8 @@ function Main() {
   const [login, setLogin] = useState();
   const [showCookiePopup, setShowCookiePopup] = useState(false);
   const [showCookiePopup2, setShowCookiePopup2] = useState(false);
+  const [showCookiePopup3, setShowCookiePopup3] = useState(false);
+  const [showCookiePopup4, setShowCookiePopup4] = useState(false);
 
   const handlePopupOpen = () => {
     setShowCookiePopup(!showCookiePopup);
@@ -19,6 +21,15 @@ function Main() {
   const handlePopupOpen2 = () => {
     setShowCookiePopup2(!showCookiePopup2);
   };
+
+  const handlePopupOpen3 = () => {
+    setShowCookiePopup3(!showCookiePopup3);
+  };
+  const handlePopupOpen4 = () => {
+    setShowCookiePopup4(!showCookiePopup4);
+  };
+
+  
   const CookiePopup = () => {
     return (
       <div className="cookie-popup">
@@ -30,7 +41,7 @@ function Main() {
             <br />
             This{" "}
             <span style={{ color: "blue", fontWeight: "bold" }}>
-              Cookie and Privacy Policy
+             Privacy Policy
             </span>{" "}
             explains how we collect, use, and protect your personal information
             when you visit and interact with our website, including information
@@ -85,17 +96,9 @@ function Main() {
             4. Payment Processing:
             <br />
             a. Payments for goods or services provided through our website are
-            processed by Razorpay. When you make a payment, your personal and
-            financial information may be collected by Razorpay for the purpose of
-            processing the transaction. Please review Razorpay's{" "}
-            <a
-              href="https://razorpay.com/docs/legal/privacy"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Privacy Policy
-            </a>{" "}
-            for information on how they handle your data.
+            processed by PhonePe. When you make a payment, your personal and
+            financial information may be collected by PhonePe for the purpose of
+            processing the transaction. We / PhonePe do not save your data on our servers.
             <br />
             <br />
             5. External Links:
@@ -126,6 +129,80 @@ function Main() {
     );
   };
 
+  const CookiePopup2 = () => {
+    return (
+      <div className="cookie-popup">
+        <div className="cookie-content">
+          <h2>Shipping Policy</h2>
+          <p>      
+            Effective Date: 04-07-23
+          </p>
+          <p>
+            As our chatbot service is a digital product, there is no physical shipping involved. Upon successful purchase, you will gain immediate access to your chatbot service via your provided login credentials.
+          </p>
+          <button className="close-button" onClick={handlePopupOpen3}>
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  const CookiePopup3 = () => {
+    return (
+      <div className="cookie-popup">
+        <div className="cookie-content">
+          <h2>Return and Refund Policy</h2>
+      <p>
+        Effective Date: 04-07-23
+      </p>
+      <p>
+        Due to the digital nature of our chatbot service, we do not offer physical returns. However, we understand that there may be instances where you are dissatisfied with your purchase.
+      </p>
+      <h3>Refund Eligibility</h3>
+      <ul>
+        <li>
+          <strong>Defective Product:</strong> If the chatbot service is defective or contains significant errors that prevent it from functioning as intended, we will offer a full refund upon verification.
+        </li>
+        <li>
+          <strong>Unsatisfactory Performance:</strong> If the chatbot's performance does not meet your expectations or if it fails to address your specific needs, we may offer a partial refund or provide a solution to resolve the issue.
+        </li>
+      </ul>
+      <h3>Refund Process</h3>
+      <ol>
+        <li>
+          To request a refund, please contact our customer support team within [Number] days of purchase.
+        </li>
+        <li>
+          You will be required to provide details about the issue you encountered and any relevant evidence.
+        </li>
+        <li>
+          Once your request is reviewed, we will determine if you are eligible for a refund.
+        </li>
+        <li>
+          If approved, the refund will be processed to your original payment method within [Number] business days.
+        </li>
+      </ol>
+      <h3>No Refunds for General Discontent</h3>
+      <p>
+        Please note that refunds will not be granted solely due to a change of mind or dissatisfaction with the chatbot's capabilities beyond what was described in the product information.
+      </p>
+      <h3>Contact Us</h3>
+      <p>If you have any further questions or require assistance, please contact our customer support team at:</p>
+      <ul>
+        <li><strong>MULTANI VENTURES PVT LTD</strong></li>
+        <li><strong>Email:</strong> gptsahib03@gmail.com </li>
+        <li><strong>Phone:</strong> +91 86994 27726 </li>
+      </ul>
+    </div>
+          <button className="close-button" onClick={handlePopupOpen3}>
+            Close
+          </button>
+        </div>
+      </div>
+    );
+  };
+    
   const TermsAndConditions = () => {
     return (
       <div className="cookie-popup">
@@ -567,6 +644,9 @@ function Main() {
       </div>
       {showCookiePopup && <CookiePopup />}
       {showCookiePopup2 && <TermsAndConditions />}
+      {showCookiePopup3 && <CookiePopup2 />}
+      {showCookiePopup4 && <CookiePopup3 />}
+
       <div className={style.bot}>
         <div className={style.nlogo}>
           <img src="images/logo1.png"></img>
@@ -589,6 +669,12 @@ function Main() {
           </div>
           <div className={style.privacy2} onClick={handlePopupOpen2}>
             Terms & Conditions
+          </div>
+          <div className={style.privacy} onClick={handlePopupOpen3}>
+            Shipping Policy
+          </div>
+          <div className={style.privacy2} onClick={handlePopupOpen4}>
+            Return and Refund Policy
           </div>
         </div>
         {/* <div className={style.mainFooter} >

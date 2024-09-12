@@ -804,6 +804,21 @@ html {
     font-size: 16px;
 }
 
+.privacy3 {
+    cursor: pointer;
+    padding-top: 10px;
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.80);
+    font-size: 16px;
+}
+
+.privacy4 {
+    cursor: pointer;
+    padding-top: 10px;
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.80);
+    font-size: 16px;
+}
 @media only screen and (max-width: 900px) {
     .nav1>a {
         display: none;
