@@ -1,5 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
+import PaymentSuccess from "./screens/success";
+import PaymentFailure from "./screens/fail";
 import Main from "./screens/main";
 import Login from "./screens/login";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
@@ -39,6 +41,8 @@ function App() {
           <Route path="/" element={<Main />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />;
+          <Route path="/success" element={<PaymentSuccess />} />
+          <Route path="/failure" element={<PaymentFailure />} />
           {login == "true" ? (
             <Route path="/chat" element={<ChatPage />} />
           ) : (
