@@ -33,7 +33,7 @@ const PaymentFailure = () => {
   };
 
   const handleRetryPayment = () => {
-    window.location.href = '/retry-payment'; // Redirect to retry payment page
+    window.location.href = '/'; // Redirect to retry payment page
   };
 
   return (
@@ -41,7 +41,7 @@ const PaymentFailure = () => {
       <h1 style={headingStyle}>Payment Failed</h1>
       <p style={paragraphStyle}>Oops! Something went wrong with your transaction. Please try again.</p>
       <button style={buttonStyle} onClick={handleRetryPayment}>
-        Retry Payment
+        Go To Home
       </button>
     </div>
   );
