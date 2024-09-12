@@ -670,10 +670,10 @@ function Main() {
           <div className={style.privacy2} onClick={handlePopupOpen2}>
             Terms & Conditions
           </div>
-          <div className={style.privacy} onClick={handlePopupOpen3}>
+          <div className={style.privacy3} onClick={handlePopupOpen3}>
             Shipping Policy
           </div>
-          <div className={style.privacy2} onClick={handlePopupOpen4}>
+          <div className={style.privacy4} onClick={handlePopupOpen4}>
             Return and Refund Policy
           </div>
         </div>
