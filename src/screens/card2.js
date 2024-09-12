@@ -12,7 +12,7 @@ function PricingCard({ card }) {
       console.log(price);
       try {
         await axios
-          .post(`https://gptsahib-server-1050062966711.us-central1.run.appapi/payment/indirect-payment`, {
+          .post(`https://gptsahib-server-1050062966711.us-central1.run.app/api/payment/indirect-payment`, {
             amount: price,
             MUID: "MUID" + Date.now(),
             transactionId: "T" + Date.now(),
