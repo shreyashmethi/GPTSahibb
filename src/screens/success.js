@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const PaymentSuccess = () => {
+  const [transactionId, setTransactionId] = useState('');
+  const [transactionDate, setTransactionDate] = useState('');
+
   const containerStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -36,10 +39,33 @@ const PaymentSuccess = () => {
     window.location.href = '/'; // Redirect to homepage
   };
 
+  // Extract the transactionId and date from the URL
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const transactionId = queryParams.get('transactionId');
+    const date = queryParams.get('date');
+
+    if (transactionId) {
+      setTransactionId(transactionId);
+    }
+
+    if (date) {
+      setTransactionDate(new Date(date).toLocaleString()); // Format the date to a readable format
+    }
+  }, []);
+
   return (
     <div style={containerStyle}>
       <h1 style={headingStyle}>Payment Successful!</h1>
-      <p style={paragraphStyle}>Thank you for your payment. Your transaction has been successfully processed.</p>
+      <p style={paragraphStyle}>
+        Thank you for your payment. Your transaction has been successfully processed.
+      </p>
+      {transactionId && transactionDate && (
+        <p style={paragraphStyle}>
+          Transaction ID: {transactionId} <br />
+          Transaction Date: {transactionDate}
+        </p>
+      )}
       <button style={buttonStyle} onClick={handleGoHome}>
         Go to Homepage
       </button>
