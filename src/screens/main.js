@@ -159,34 +159,13 @@ function Main() {
       <p>
         Due to the digital nature of our chatbot service, we do not offer physical returns. However, we understand that there may be instances where you are dissatisfied with your purchase.
       </p>
-      <h3>Refund Eligibility</h3>
+      <h3>Refund Policy</h3>
       <ul>
         <li>
-          <strong>Defective Product:</strong> If the chatbot service is defective or contains significant errors that prevent it from functioning as intended, we will offer a full refund upon verification.
+          <strong>No Refunds will be provided in any scenario</strong>
         </li>
-        <li>
-          <strong>Unsatisfactory Performance:</strong> If the chatbot's performance does not meet your expectations or if it fails to address your specific needs, we may offer a partial refund or provide a solution to resolve the issue.
-        </li>
+        
       </ul>
-      <h3>Refund Process</h3>
-      <ol>
-        <li>
-          To request a refund, please contact our customer support team within 2 days of purchase.
-        </li>
-        <li>
-          You will be required to provide details about the issue you encountered and any relevant evidence.
-        </li>
-        <li>
-          Once your request is reviewed, we will determine if you are eligible for a refund.
-        </li>
-        <li>
-          If approved, the refund will be processed to your original payment method within [Number] business days.
-        </li>
-      </ol>
-      <h3>No Refunds for General Discontent</h3>
-      <p>
-        Please note that refunds will not be granted solely due to a change of mind or dissatisfaction with the chatbot's capabilities beyond what was described in the product information.
-      </p>
       <h3>Contact Us</h3>
       <p>If you have any further questions or require assistance, please contact our customer support team at:</p>
       <ul>
@@ -567,6 +546,7 @@ function Main() {
                 <img src="images/mail.png"></img>gptsahib03@gmail.com
               </div>
               <div className={style.conele}>
+                <strong> MULTANI VENTURES PVT LTD </strong>
                 Address : 296, Sector-71,Mohali
               </div>
             </div>
