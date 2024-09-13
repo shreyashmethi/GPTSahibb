@@ -45,7 +45,7 @@ function Main() {
             </span>{" "}
             explains how we collect, use, and protect your personal information
             when you visit and interact with our website, including information
-            related to payment processing through Razorpay. By accessing or using
+            related to payment processing through PhonePe. By accessing or using
             our website, you consent to the terms outlined in this policy.
             <br />
             <br />
@@ -54,7 +54,7 @@ function Main() {
             a. Personal Information: We may collect personal information, such as
             your name, email address, contact details, and payment information
             (e.g., credit card details) when you voluntarily provide them to us
-            for purposes such as completing transactions through Razorpay.
+            for purposes such as completing transactions through PhonePe.
             <br />
             b. Cookies and Tracking Technologies: We use cookies and similar
             tracking technologies to enhance your browsing experience, analyze
@@ -71,11 +71,11 @@ function Main() {
             <br />
             a. We respect your privacy and will not sell, rent, or disclose your
             personal information to third parties, except as required by law, or
-            for the purpose of processing payments through Razorpay with your
+            for the purpose of processing payments through PhonePe with your
             explicit consent.
             <br />
             b. We may engage trusted third-party service providers, including
-            Razorpay, to assist us in delivering our services, subject to their
+            PhonePe, to assist us in delivering our services, subject to their
             agreement to maintain the confidentiality and security of your
             personal information.
             <br />
@@ -118,7 +118,7 @@ function Main() {
             <br />
             If you have any questions, concerns, or requests regarding your
             personal information or this policy, including information related to
-            payments through Razorpay, please contact us through the provided
+            payments through PhonePe, please contact us through the provided
             contact details on our website.
           </p>
           <button className="close-button" onClick={handlePopupOpen}>
@@ -187,7 +187,7 @@ function Main() {
         <div className="cookie-content">
           <h2>Terms and Conditions</h2>
           <p>
-            Welcome to GPT Sahib! These terms and conditions outline the rules and regulations for the use of our website and services provided through Razorpay.
+            Welcome to GPT Sahib! These terms and conditions outline the rules and regulations for the use of our website and services provided through PhonePe.
           </p>
           <p>
             By accessing this website and using our services, you accept these terms and conditions. Do not continue to use GPT Sahib if you do not agree to all the terms and conditions stated on this page.
@@ -198,11 +198,11 @@ function Main() {
           </p>
           <h3>Payments</h3>
           <p>
-            All payments made through our website are processed by Razorpay. By using our services, you agree to comply with Razorpay's terms of service and privacy policy.
+            All payments made through our website are processed by PhonePe. By using our services, you agree to comply with PhonePe's terms of service and privacy policy.
           </p>
           <h3>Refund Policy</h3>
           <p>
-            All payments made through our website are non-refundable unless explicitly stated otherwise in writing by GPT Sahib. Refund requests, if any, must be submitted in accordance with the refund policy outlined by Razorpay.
+            All payments made through our website are non-refundable unless explicitly stated otherwise in writing by GPT Sahib. 
           </p>
           <h3>Content</h3>
           <p>
