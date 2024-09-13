@@ -547,7 +547,7 @@ function Main() {
               </div>
               <div className={style.conele}>
                 <strong> MULTANI VENTURES PVT LTD </strong>
-                <br>
+                <br />
                 Address : 296, Sector-71,Mohali
               </div>
             </div>
